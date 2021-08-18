@@ -14,7 +14,7 @@ class CreateRemotatsusTable extends Migration
     public function up()
     {
         Schema::create('remotatsus', function (Blueprint $table) {
-            $table->increments('remotatsu_id');
+            $table->increments('id');
             $table->string('remotatsu_name', 256);
             $table->text('description');
             $table->integer('display_order');

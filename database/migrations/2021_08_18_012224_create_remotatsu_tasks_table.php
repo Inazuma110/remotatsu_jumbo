@@ -14,7 +14,7 @@ class CreateRemotatsuTasksTable extends Migration
     public function up()
     {
         Schema::create('remotatsu_tasks', function (Blueprint $table) {
-            $table->increments('remotatsu_task_id');
+            $table->increments('id');
             $table->integer('user_id');
             $table->integer('remotatsu_id');
             $table->timestamps();
