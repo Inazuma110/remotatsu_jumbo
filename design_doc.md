@@ -79,4 +79,3 @@ admin_page --> mypage
 
 @enduml
 ```
-
