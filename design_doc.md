@@ -30,11 +30,12 @@ entity "remotatsus" as remotatsu_table{
   remotatsu_id : INTEGER
   ..
   remotatsu_name : VARCHAR
-  description : VARCHAR
+  description : TEXT
   display_order : INTEGER
 }
 
 entity "remotatsus_tasks" as check_table{
+  remotatsus_task_id : INTEGER
   user_id (FK) : VARCHAR
   remotatsu_id (FK) : INTEGER
   ..
