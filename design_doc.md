@@ -30,11 +30,12 @@ entity "remotatsus" as remotatsu_table{
   remotatsu_id : INTEGER
   ..
   remotatsu_name : VARCHAR
-  description : VARCHAR
+  description : TEXT
   display_order : INTEGER
 }
 
 entity "remotatsus_tasks" as check_table{
+  remotatsus_task_id : INTEGER
   user_id (FK) : VARCHAR
   remotatsu_id (FK) : INTEGER
   ..
@@ -79,9 +80,3 @@ admin_page --> mypage
 @enduml
 ```
 
-13時からAPIのお作法
-13時半からインターンで集まる
-MVP（ミニマムな開発）重要な機能から実装する　スケジュールの見直し
-
-画面フローの確認
-環境構築
