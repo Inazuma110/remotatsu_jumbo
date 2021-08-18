@@ -21,7 +21,6 @@ entity "votes" as vote_table {
 
 entity "roles" as role_table {
   role_id : INTEGER
-  user_id : INTEGER
   ..
   role_name : VARCHAR
 }
