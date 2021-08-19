@@ -13,13 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             UserSeeder::class,
-            VoteSeeder::class,
-            RoleSeeder::class,
             RemotatsuSeeder::class,
-            RemotatsuTaskSeeder::class,
         ]);
     }
 }

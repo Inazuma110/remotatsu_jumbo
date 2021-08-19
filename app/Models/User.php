@@ -21,6 +21,6 @@ class User extends Model
     }
 
     public function remotatsus(){
-        return $this->belongsToMany(Role::class, 'remotatsu_tasks', 'remotatsu_id', 'user_id');
+        return $this->belongsToMany(Remotatsu::class, 'remotatsu_tasks', 'remotatsu_id', 'user_id');
     }
 }
