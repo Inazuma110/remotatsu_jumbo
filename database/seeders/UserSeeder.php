@@ -40,18 +40,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'role_id' => $general->id,
             ]);
-            // $user->vote()->create([
-            //     'vote_number' => rand(1, 100),
-            //     'updated_at' => new DateTime(),
-            //     'created_at' => new DateTime(),
-            // ]);
-            // $user->remotatsus()->createMany([[
-            //     'remotatsu_name' => Str::random(10),
-            //     'description' => Str::random(20),
-            //     'display_order' => $i,
-            //     'updated_at' => new DateTime(),
-            //     'created_at' => new DateTime(),
-            // ]]);
         }
     }
 }
