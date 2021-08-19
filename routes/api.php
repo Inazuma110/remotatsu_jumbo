@@ -18,5 +18,3 @@ use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->get('/remotatsus', [RemotatsuController::class, 'index']);
-// Route::post('/login', 'AuthController@login');
-
