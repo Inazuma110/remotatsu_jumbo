@@ -3,6 +3,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/remotatsus', [RemotatsuController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->get('/remotatsus', [RemotatsuController::class, 'index']);
