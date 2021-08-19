@@ -20,7 +20,7 @@ class User extends Model
         return $this->belongsTo(Role::class);
     }
 
-    public function remotatsu(){
+    public function remotatsus(){
         return $this->belongsToMany(Role::class, 'remotatsu_tasks', 'remotatsu_id', 'user_id');
     }
 }
