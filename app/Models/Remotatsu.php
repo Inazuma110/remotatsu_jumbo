@@ -11,6 +11,10 @@ class Remotatsu extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'remotatsu_tasks', 'user_id', 'remotatsu_id');
+        return
+            $this->belongsToMany
+            (
+                User::class, 'remotatsu_tasks'
+            );
     }
 }
