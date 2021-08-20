@@ -23,9 +23,9 @@ class UserSeeder extends Seeder
             ['role_name' => 'Admin'],
         );
         User::create([
-                'employee_code' => Str::random(10),
-                'user_name' => Str::random(10),
-                'email' => Str::random(10) . '@gmail.com',
+                'employee_code' => 'C0117035',
+                'user_name' => 'ShutaIto',
+                'email' =>  'c011703534@gmail.com',
                 'password' => Hash::make('password'),
                 'role_id' => $admin->id,
         ]);

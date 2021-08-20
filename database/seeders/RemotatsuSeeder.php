@@ -18,7 +18,7 @@ class RemotatsuSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 100; $i++){
             Remotatsu::create([
                 'remotatsu_name' => Str::random(10),
                 'description' => Str::random(10),
