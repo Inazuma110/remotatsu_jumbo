@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         User::create([
                 'employee_code' => 'C0117035',
                 'user_name' => 'ShutaIto',
-                'email' =>  'c011703534@gmail.com',
+                'email' =>  'c011703534@edu.teu.ac.jp',
                 'password' => Hash::make('password'),
                 'role_id' => $admin->id,
         ]);
