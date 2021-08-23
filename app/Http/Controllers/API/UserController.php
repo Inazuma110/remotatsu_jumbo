@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Services\UpdateTasksService;
-use Illuminate\Support\Facades\Validator;
+use App\Services\GetCanVoteService;
 
 class UserController extends Controller
 {
     private $UpdateTasksService;
-    public function __construct(UpdateTasksService $updateTasksService)
+    private $GetCanVoteService;
+    public function __construct(UpdateTasksService $updateTasksService, GetCanVoteService $getCanVoteService)
     {
         $this->UpdateTasksService = $updateTasksService;
+        $this->GetCanVoteService = $getCanVoteService;
     }
 
     public function tasks_validates(Request $request)
@@ -41,5 +43,10 @@ class UserController extends Controller
             DB::rollBack();
             throw $e;
         }
+    }
+
+    public function get_can_vote(Request $request)
+    {
+        return $this->GetCanVoteService->get_can_vote();
     }
 }
