@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Services\UpdateTasksService;
 use App\Services\GetCanVoteService;
 use App\Services\VoteLottery;
+use \Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -69,6 +70,12 @@ class UserController extends Controller
         try
         {
             $this->vote_validate($request);
+            if(!$this->GetCanVoteService->get_can_vote())
+            {
+                return response()->json([
+                    'message' => 'You do not meet the application requirements.'
+                ], Response::HTTP_METHOD_NOT_ALLOWED);
+            }
             $this->VoteLottery->vote($request->number);
             DB::commit();
         }
