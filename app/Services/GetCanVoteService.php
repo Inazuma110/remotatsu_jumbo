@@ -11,6 +11,7 @@ class GetCanVoteService
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
+        if(!is_null($user->vote)) return false;
         $remotatsus = $user->remotatsus;
         return count($remotatsus) >= self::MINIMUM_ACHIEVEMENTS_NUMBER;
     }

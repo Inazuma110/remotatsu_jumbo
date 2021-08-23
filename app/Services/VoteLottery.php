@@ -20,10 +20,9 @@ class VoteLottery
         if(!$this->GetCanVoteService->get_can_vote())
         {
             return response()->json([
-                'message' => 'You do not meet the application requirements.'
+                'message' => 'You do not meet the application requirements or already voted.'
             ], Response::HTTP_METHOD_NOT_ALLOWED);
         }
-        echo "success";
         $user_id = Auth::id();
         $user = User::find($user_id);
         $user->vote()->create([
