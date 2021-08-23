@@ -70,21 +70,14 @@ class UserController extends Controller
         try
         {
             $this->vote_validate($request);
-            if(!$this->GetCanVoteService->get_can_vote())
-            {
-                return response()->json([
-                    'message' => 'You do not meet the application requirements.'
-                ], Response::HTTP_METHOD_NOT_ALLOWED);
-            }
-            $this->VoteLottery->vote($request->number);
+            $res = $this->VoteLottery->vote($request->number);
             DB::commit();
+            return $res;
         }
         catch(\Exception $e)
         {
             DB::rollBack();
             throw $e;
         }
-
-
     }
 }
