@@ -2,22 +2,21 @@
 namespace App\Services;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\RemotatsuTask;
 
 class UpdateTasksService
 {
     public function update_tasks($remotatsus_state)
     {
         $user_id = Auth::id();
-        $remotatsu_tasks = DB::table('remotatsu_tasks');
-        $remotatsu_tasks->where('user_id', $user_id)->delete();
+        RemotatsuTask::where('user_id', $user_id)->delete();
 
         foreach($remotatsus_state as $state)
         {
             if($state["remotatsus_state"] === 0) continue;
-            $remotatsu_tasks->insert([
+            RemotatsuTask::create([
                 'user_id' => $user_id,
                 'remotatsu_id' => $state["remotatsu_id"]
             ]);

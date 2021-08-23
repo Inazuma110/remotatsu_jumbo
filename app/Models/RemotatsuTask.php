@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class RemotatsuTask extends Model
 {
     use HasFactory;
+    protected $fillable = ['user_id', 'remotatsu_id'];
 }
