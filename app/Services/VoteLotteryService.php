@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\GetCanVoteService;
 use \Symfony\Component\HttpFoundation\Response;
 
-class VoteLottery
+class VoteLotteryService
 {
     private $GetCanVoteService;
     public function __construct(

@@ -8,23 +8,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Services\UpdateTasksService;
 use App\Services\GetCanVoteService;
-use App\Services\VoteLottery;
+use App\Services\VoteLotteryService;
 use \Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
     private $UpdateTasksService;
     private $GetCanVoteService;
-    private $VoteLottery;
+    private $VoteLotteryService;
     public function __construct(
         UpdateTasksService $updateTasksService,
         GetCanVoteService $getCanVoteService,
-        VoteLottery $voteLottery
+        VoteLotteryService $voteLotteryService
     )
     {
         $this->UpdateTasksService = $updateTasksService;
         $this->GetCanVoteService = $getCanVoteService;
-        $this->VoteLottery = $voteLottery;
+        $this->VoteLotteryService = $voteLotteryService;
     }
 
     public function tasks_validates(Request $request)
@@ -70,7 +70,7 @@ class UserController extends Controller
         try
         {
             $this->vote_validate($request);
-            $res = $this->VoteLottery->vote($request->number);
+            $res = $this->VoteLotteryService->vote($request->number);
             DB::commit();
             return $res;
         }

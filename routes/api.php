@@ -20,4 +20,4 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->get('/remotatsus', [RemotatsuController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/remotatsus_state', [UserController::class, 'update_tasks']);
 Route::middleware('auth:sanctum')->get('/can_vote', [UserController::class, 'get_can_vote']);
-Route::middleware('auth:sanctum')->post('/vote', [UserController::class, 'vote']);
+Route::middleware('auth:sanctum')->post('/lottery', [UserController::class, 'vote']);
