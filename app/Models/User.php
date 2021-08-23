@@ -22,6 +22,10 @@ class User extends Authenticatable
     }
 
     public function remotatsus(){
-        return $this->belongsToMany(Remotatsu::class, 'remotatsu_tasks', 'remotatsu_id', 'user_id');
+        return
+            $this->belongsToMany
+            (
+                Remotatsu::class, 'remotatsu_tasks'
+            );
     }
 }

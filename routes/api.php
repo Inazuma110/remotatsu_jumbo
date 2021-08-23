@@ -18,3 +18,4 @@ use App\Http\Controllers\AuthController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->get('/remotatsus', [RemotatsuController::class, 'index']);
+Route::middleware('auth:sanctum')->post('/remotatsus_state', [UserController::class, 'update_tasks']);
