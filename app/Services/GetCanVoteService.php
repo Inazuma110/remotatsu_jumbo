@@ -6,12 +6,12 @@ use Illuminate\Support\Facades\Auth;
 
 class GetCanVoteService
 {
+    private const MINIMUM_ACHIEVEMENTS_NUMBER = 15;
     public function get_can_vote()
     {
-        $minimum_achievements_number = 15;
         $user_id = Auth::id();
         $user = User::find($user_id);
         $remotatsus = $user->remotatsus;
-        return count($remotatsus) >= $minimum_achievements_number;
+        return count($remotatsus) >= self::MINIMUM_ACHIEVEMENTS_NUMBER;
     }
 }
