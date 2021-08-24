@@ -25,5 +25,9 @@ class GetWinnerInfoService
 
     public function get_winner()
     {
+        $winner_number = $this->get_winner_number();
+        $winner = Vote::where('vote_number', $winner_number);
+        $winner_id = $winner->first()->toArray()['user_id'];
+        return $winner_id;
     }
 }
