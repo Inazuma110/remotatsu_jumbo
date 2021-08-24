@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/remotatsus', [RemotatsuController::clas
 Route::middleware('auth:sanctum')->post('/remotatsus_state', [UserController::class, 'update_tasks']);
 Route::middleware('auth:sanctum')->get('/can_vote', [UserController::class, 'get_can_vote']);
 Route::middleware('auth:sanctum')->post('/lottery', [UserController::class, 'vote']);
+Route::middleware('auth:sanctum')->get('/winner_number', [VoteController::class, 'get_winner_number']);
+Route::middleware('auth:sanctum')->get('/winner', [VoteController::class, 'get_winner_name']);
