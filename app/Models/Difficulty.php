@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Difficulty extends Model
 {
     use HasFactory;
+    public function remotatsus()
+    {
+        return $this->hasMany(Remotatsu::class);
+    }
 }

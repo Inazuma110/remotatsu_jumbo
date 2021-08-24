@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     use HasFactory;
+
+    public function remotatsus()
+    {
+        return $this->hasMany(Remotatsu::class);
+    }
 }

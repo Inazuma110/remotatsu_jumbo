@@ -17,4 +17,14 @@ class Remotatsu extends Model
                 User::class, 'remotatsu_tasks'
             );
     }
+
+    public function difficulty()
+    {
+        return $this->belongsTo(Difficulty::class);
+    }
+
+    public function genre()
+    {
+        return $this->belongsTo(Genre::class);
+    }
 }
