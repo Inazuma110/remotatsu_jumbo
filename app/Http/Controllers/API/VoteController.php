@@ -21,8 +21,8 @@ class VoteController extends Controller
         return $this->GetWinnerInfoService->get_winner_number();
     }
 
-    public function get_winner(Request $request)
+    public function get_winner_name(Request $request)
     {
-        return $this->GetWinnerInfoService->get_winner();
+        return $this->GetWinnerInfoService->get_winner_name();
     }
 }

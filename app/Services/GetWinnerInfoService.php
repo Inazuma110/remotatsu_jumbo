@@ -23,11 +23,12 @@ class GetWinnerInfoService
         return $number;
     }
 
-    public function get_winner()
+    public function get_winner_name()
     {
         $winner_number = $this->get_winner_number();
         $winner = Vote::where('vote_number', $winner_number);
         $winner_id = $winner->first()->toArray()['user_id'];
-        return $winner_id;
+        $winner_name = User::find($winner_id)->user_name;
+        return $winner_name;
     }
 }
