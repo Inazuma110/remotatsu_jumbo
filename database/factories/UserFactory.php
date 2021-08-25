@@ -5,6 +5,8 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Role;
 
 class UserFactory extends Factory
 {
@@ -22,12 +24,14 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $general_role = Role::all()->where('role_name', 'General');
+        $general_role_id = $general_role->pluck('id')->first();
         return [
-            'name' => $this->faker->name(),
+            'employee_code' => $this->faker->unique()->asciify(),
+            'user_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'password' => Hash::make('password'),
+            'role_id' => $general_role_id
         ];
     }
 
@@ -36,11 +40,15 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function unverified()
+    public function to_be_admin()
     {
         return $this->state(function (array $attributes) {
+            $admin_role = Role::all()->where(
+                'role_name', 'Admin'
+            );
+            $admin_role_id = $admin_role->pluck('id')->first();
             return [
-                'email_verified_at' => null,
+                'role_id' => $admin_role_id
             ];
         });
     }
