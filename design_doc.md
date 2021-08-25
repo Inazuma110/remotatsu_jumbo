@@ -40,10 +40,24 @@ entity "remotatsus_tasks" as check_table{
   ..
 }
 
+entity "genres" as genre_table{
+    genre_id : INTEGER
+    ..
+    genre_name : VARCHAR
+}
+
+entity "difficulties" as diff_table{
+    diff_id : INTEGER
+    ..
+    difficult_name : VARCHAR
+}
+
 user_table --* "P" check_table : チェックを入れる
 check_table  "P" *-- remotatsu_table : チェックを入れられる
 user_table "P" ..* role_table : ロールを持つ
 user_table --* vote_table : 自然数を投票する
+remotatsu_table ..* genre_table : ジャンルを持つ
+remotatsu_table ..* diff_table : 難易度を持つ
 
 
 @enduml
