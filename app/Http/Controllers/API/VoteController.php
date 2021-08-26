@@ -8,19 +8,19 @@ use App\Services\GetWinnerInfoService;
 
 class VoteController extends Controller
 {
-    private $GetWinnerInfoService;
+    private $getWinnerInfoService;
     public function __construct(
-        GetWinnerInfoService $getWinnerInfoService
+        getWinnerInfoService $getWinnerInfoService
     )
     {
-        $this->GetWinnerInfoService= $getWinnerInfoService;
+        $this->getWinnerInfoService= $getWinnerInfoService;
     }
 
     public function get_winner_number(Request $request)
     {
         return response()->json([
             'winner_number' =>
-            $this->GetWinnerInfoService->get_winner_number()
+            $this->getWinnerInfoService->get_winner_number()
         ]);
     }
 
@@ -28,7 +28,7 @@ class VoteController extends Controller
     {
         return response()->json([
             'winner_name' =>
-            $this->GetWinnerInfoService->get_winner_name()
+            $this->getWinnerInfoService->get_winner_name()
         ]);
     }
 }
