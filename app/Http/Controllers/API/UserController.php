@@ -51,7 +51,7 @@ class UserController extends Controller
             $this->tasks_validates($request);
             $tasks = $this->UpdateTasksService->update_tasks($request->remotatsus_state);
             DB::commit();
-            return $tasks;
+            return $this->jsonResponse($tasks);
         }
         catch(\Exception $e)
         {
