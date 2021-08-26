@@ -10,7 +10,7 @@ class RemotatsuController extends Controller
 {
     public function index()
     {
-        return Remotatsu::all();
+        return $this->jsonResponse(Remotatsu::all());
     }
 
 }
