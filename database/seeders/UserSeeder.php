@@ -27,6 +27,15 @@ class UserSeeder extends Seeder
             ['role_name' => 'General'],
         );
         User::factory()->count(10)->create();
-        User::factory()->count(1)->to_be_admin()->create();
+        User::factory()->to_be_admin()->create([
+            'email' => 'c0117035@edu.teu.ac.jp',
+            'user_name' => 'Shuta Ito',
+            'password' => Hash::make('password'),
+        ]);
+        User::factory()->create([
+            'email' => 'general@edu.teu.ac.jp',
+            'user_name' => 'general: Shuta Ito',
+            'password' => Hash::make('password'),
+        ]);
     }
 }
