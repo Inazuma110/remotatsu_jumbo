@@ -62,7 +62,10 @@ class UserController extends Controller
 
     public function get_can_vote(Request $request)
     {
-        return $this->GetCanVoteService->get_can_vote();
+        return response()->json([
+            'can_vote' => $this->GetCanVoteService->get_can_vote()
+        ]);
+        return ;
     }
 
     public function vote(Request $request){
