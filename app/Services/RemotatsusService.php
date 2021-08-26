@@ -9,7 +9,6 @@ class RemotatsusService
 {
     public function index()
     {
-        // var_dump(Remotatsu::all()->toArray());
         return Remotatsu::all()->sortBy('display_order');
     }
 }
